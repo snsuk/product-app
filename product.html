@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Детальная страница товара</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="product-detail">
+        <img id="product-image" src="" alt="Product Image">
+        <h1 id="product-title">Название товара</h1>
+        <p id="product-description">Подробное описание товара...</p>
+        <div class="price-and-button">
+            <span id="product-price">Цена: $0.00</span>
+            <button onclick="addToCart()">Добавить в корзину</button>
+        </div>
+    </div>
+    <script src="js/script.js"></script>
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const productId = urlParams.get('id');
+
+        const products = {
+            1: {
+                image: 'images/product1.jpg',
+                title: 'Блинчики',
+                description: 'Сахарные блины',
+                price: '$100.00'
+            },
+            2: {
+                image: 'images/product2.jpg',
+                title: 'Рамён',
+                description: 'Сочная рыба',
+                price: '$200.00'
+            },
+            3: {
+                image: 'images/product3.jpg',
+                title: 'Бургер',
+                description: 'Бургер с говядиной',
+                price: '$300.00'
+            },
+            4: {
+                image: 'images/product4.jpg',
+                title: 'Поке',
+                description: 'Овощной поке',
+                price: '$400.00'
+            },
+            5: {
+                image: 'images/product5.jpg',
+                title: 'Полезно-вредная еда',
+                description: 'Разница',
+                price: '$500.00'
+            },
+            6: {
+                image: 'images/product6.jpg',
+                title: 'Хачапури',
+                description: 'Много сыра',
+                price: '$600.00'
+            },
+            7: {
+                image: 'images/product7.jpg',
+                title: 'Поке',
+                description: 'Диетическая еда',
+                price: '$700.00'
+            },
+            8: {
+                image: 'images/product8.jpg',
+                title: 'Манты',
+                description: 'Сочные',
+                price: '$800.00'
+            }
+        };
+
+        const product = products[productId];
+        if (product) {
+            document.getElementById('product-image').src = product.image;
+            document.getElementById('product-title').textContent = product.title;
+            document.getElementById('product-description').textContent = product.description;
+            document.getElementById('product-price').textContent = `Цена: ${product.price}`;
+        }
+    </script>
+</body>
+</html>
